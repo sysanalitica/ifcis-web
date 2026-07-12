@@ -345,3 +345,134 @@ document.addEventListener("keydown", event => {
 });
 
 loadPublicData();
+/* Fondo premium de puntos luminosos — Galería */
+(function initGalleryDottedGlow() {
+  const canvas = document.getElementById("galleryDottedGlow");
+  const section = document.querySelector(".gallery-section");
+
+  if (!canvas || !section) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const context = canvas.getContext("2d", {
+    alpha: true
+  });
+
+  if (!context) return;
+
+  const dots = [];
+  const gap = 16;
+  const baseRadius = 1.25;
+  let width = 0;
+  let height = 0;
+  let animationFrame = null;
+  let visible = true;
+
+  function resizeCanvas() {
+    const rect = section.getBoundingClientRect();
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+    width = Math.max(1, Math.floor(rect.width));
+    height = Math.max(1, Math.floor(section.offsetHeight));
+
+    canvas.width = Math.floor(width * pixelRatio);
+    canvas.height = Math.floor(height * pixelRatio);
+
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    createDots();
+  }
+
+  function createDots() {
+    dots.length = 0;
+
+    const columns = Math.ceil(width / gap);
+    const rows = Math.ceil(height / gap);
+
+    for (let row = 0; row <= rows; row += 1) {
+      for (let column = 0; column <= columns; column += 1) {
+        dots.push({
+          x: column * gap,
+          y: row * gap,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.3 + Math.random() * 1.3,
+          intensity: 0.2 + Math.random() * 0.8
+        });
+      }
+    }
+  }
+
+  function draw(time) {
+    if (!visible) {
+      animationFrame = requestAnimationFrame(draw);
+      return;
+    }
+
+    context.clearRect(0, 0, width, height);
+
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const maxDistance = Math.hypot(centerX, centerY);
+
+    dots.forEach((dot) => {
+      const pulse =
+        (Math.sin(time * 0.001 * dot.speed + dot.phase) + 1) / 2;
+
+      const distance = Math.hypot(
+        dot.x - centerX,
+        dot.y - centerY
+      );
+
+      const centerFade = 1 - Math.min(distance / maxDistance, 1);
+      const glowStrength =
+        0.12 +
+        pulse * 0.58 * dot.intensity * centerFade;
+
+      const radius =
+        baseRadius +
+        pulse * 0.7 * dot.intensity;
+
+      context.beginPath();
+      context.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
+      context.fillStyle =
+        `rgba(96, 188, 247, ${glowStrength})`;
+      context.shadowBlur = 8 + pulse * 12;
+      context.shadowColor =
+        `rgba(33, 145, 214, ${0.3 + pulse * 0.45})`;
+      context.fill();
+    });
+
+    context.shadowBlur = 0;
+    animationFrame = requestAnimationFrame(draw);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      visible = entries[0]?.isIntersecting ?? true;
+    },
+    {
+      threshold: 0.05
+    }
+  );
+
+  observer.observe(section);
+
+  const resizeObserver = new ResizeObserver(() => {
+    resizeCanvas();
+  });
+
+  resizeObserver.observe(section);
+  resizeCanvas();
+  animationFrame = requestAnimationFrame(draw);
+
+  window.addEventListener("beforeunload", () => {
+    cancelAnimationFrame(animationFrame);
+    observer.disconnect();
+    resizeObserver.disconnect();
+  });
+})();
