@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IFCIS — formación profesional en seguridad, tiro y custodia." />
+  <meta name="theme-color" content="#060b10" />
+  <title>IFCIS | Formación Profesional en Seguridad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="premium-ui">
+  <div class="site-noise" aria-hidden="true"></div><div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img class="brand-logo" src="assets/ifcis-logo.png" alt="Logo IFCIS">
+      <div class="brand-copy compact-brand-copy">
+        <strong>IFCIS</strong>
+        <span>INSTITUTO DE FORMACIÓN Y CAPACITACIÓN INTEGRAL DE SEGURIDAD</span>
+      </div>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a class="active" href="#inicio">INICIO</a>
+      <a href="#cursos">CURSOS</a>
+      <a href="#nosotros">NOSOTROS</a>
+      <a href="#galeria">GALERÍA</a>
+      <a href="#calendario">CALENDARIO</a>
+      <a href="#contacto">CONTACTO</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="admin-access" href="admin.html" aria-label="Acceder al panel administrativo">ADMIN</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <aside class="drawer-panel">
+      <div class="drawer-top">
+        <span>MENÚ</span>
+        <button class="drawer-close" data-close-drawer aria-label="Cerrar menú">×</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#inicio">Inicio <span>01</span></a>
+        <a href="#cursos">Cursos <span>02</span></a>
+        <a href="#nosotros">Nosotros <span>03</span></a>
+        <a href="#galeria">Galería <span>04</span></a>
+        <a href="#calendario">Calendario <span>05</span></a>
+        <a href="#contacto">Contacto <span>06</span></a>
+      </nav>
+      <a class="btn btn-secondary btn-full drawer-admin-link" href="admin.html">PANEL ADMINISTRATIVO</a>
+      <button class="btn btn-primary btn-full" data-open-registration>INSCRIBIRME AHORA</button>
+    </aside>
+  </div>
+
+  <main class="site-main">
+    <section class="hero section" id="inicio">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-inner container">
+        <div class="hero-copy-block">
+          <div class="kicker"><span></span> FORMACIÓN PROFESIONAL</div>
+          <h1>PREPARADOS PARA<br><em>PROTEGER.</em> ENTRENADOS<br>PARA LIDERAR.</h1>
+          <p>
+            Capacitación de excelencia en tiro, tácticas y seguridad.
+            Formación práctica con instructores especializados y estándares profesionales.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#cursos">VER CURSOS <span>↗</span></a>
+            <a class="btn btn-secondary" href="#nosotros">CONOCER MÁS <span>→</span></a>
+          </div>
+
+          <div class="trust-strip">
+            <article>
+              <span class="trust-icon">◇</span>
+              <div><small>EXPERIENCIA</small><strong>15+ AÑOS</strong></div>
+            </article>
+            <article>
+              <span class="trust-icon">◉</span>
+              <div><small>ALUMNOS</small><strong>2500+</strong></div>
+            </article>
+            <article>
+              <span class="trust-icon">⌖</span>
+              <div><small>CURSOS</small><strong>20+</strong></div>
+            </article>
+            <article>
+              <span class="trust-icon">✦</span>
+              <div><small>CERTIFICACIÓN</small><strong>OFICIAL</strong></div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="contact-panel glass" id="contacto">
+          <div class="panel-glow"></div>
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">CONTACTO</span>
+              <h2>Estamos para ayudarte</h2>
+            </div>
+            <span class="status-dot">EN LÍNEA</span>
+          </div>
+
+          <div class="contact-methods">
+            <a href="tel:+541112345678"><span>☎</span><div><small>TELÉFONO</small><strong>+54 11 1234 5678</strong></div></a>
+            <a href="mailto:info@ifcis.com.ar"><span>✉</span><div><small>EMAIL</small><strong>info@ifcis.com.ar</strong></div></a>
+            <a href="https://maps.google.com" target="_blank" rel="noopener"><span>⌖</span><div><small>UBICACIÓN</small><strong>Buenos Aires, Argentina</strong></div></a>
+          </div>
+
+          <form class="premium-form" id="contactForm" novalidate><input class="security-honeypot" name="website" autocomplete="off" tabindex="-1" aria-hidden="true">
+            <div class="form-head">ESCRIBINOS</div>
+            <div class="field-grid">
+              <label class="field">
+                <span>Nombre</span>
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+            </div>
+            <label class="field">
+              <span>Mensaje</span>
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button class="btn btn-primary btn-full" type="submit">ENVIAR MENSAJE <span>↗</span></button>
+            <p class="form-feedback" id="contactFeedback" role="status"></p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="courses-section section" id="cursos">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker"><span></span> NUESTRA OFERTA ACADÉMICA</div>
+            <h2>CURSOS <em>DESTACADOS</em></h2>
+          </div>
+          <button class="text-link" id="toggleCourses">VER TODOS LOS CURSOS <span>↗</span></button>
+        </div>
+        <div class="course-grid" id="courseGrid"></div>
+      </div>
+    </section>
+
+    <section class="about-section section" id="nosotros">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <div class="kicker"><span></span> SOBRE IFCIS</div>
+          <h2>FORMACIÓN QUE EXIGE.<br><em>PREPARACIÓN QUE RESPALDA.</em></h2>
+          <p>
+            Diseñamos programas enfocados en disciplina, responsabilidad y aplicación práctica.
+            Cada curso combina contenidos técnicos, entrenamiento supervisado y evaluación progresiva.
+          </p>
+          <div class="about-actions">
+            <button class="btn btn-primary" data-open-registration>CONSULTAR VACANTES <span>↗</span></button>
+          </div>
+        </div>
+
+        <div class="feature-list">
+          <article class="feature-card">
+            <span>01</span>
+            <div><h3>Instructores especializados</h3><p>Experiencia práctica y formación pedagógica.</p></div>
+          </article>
+          <article class="feature-card">
+            <span>02</span>
+            <div><h3>Entrenamiento progresivo</h3><p>Metodología clara, segura y orientada a resultados.</p></div>
+          </article>
+          <article class="feature-card">
+            <span>03</span>
+            <div><h3>Certificación</h3><p>Evaluación final y constancia según el programa cursado.</p></div>
+          </article>
+        </div>
+        <div class="team-block">
+          <div class="team-heading">
+            <div class="kicker team-kicker"><span></span> NUESTRO EQUIPO</div>
+            <h3>Profesionales que forman profesionales</h3>
+          </div>
+          <div class="team-grid" id="publicTeamGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section section" id="galeria">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker"><span></span> ENTRENAMIENTO EN ACCIÓN</div>
+            <h2>GALERÍA</h2>
+          </div>
+        </div>
+        <div class="gallery-grid" id="publicGalleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="calendar-section section" id="calendario">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="kicker"><span></span> PRÓXIMAS FECHAS</div>
+            <h2>CALENDARIO DE CURSOS</h2>
+          </div>
+        </div>
+        <div class="schedule" id="schedule"></div>
+      </div>
+    </section>
+  </main><nav class="quick-actions" aria-label="Accesos rápidos">
+<a href="#cursos"><span>⌖</span><small>CURSOS</small></a>
+<a href="#calendario"><span>◫</span><small>FECHAS</small></a>
+<a href="#contacto"><span>✉</span><small>CONTACTO</small></a>
+<button type="button" data-open-registration><span>↗</span><small>VACANTES</small></button>
+</nav>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand footer-brand">
+        <img class="brand-logo footer-logo" src="assets/ifcis-logo.png" alt="Logo IFCIS">
+        <div class="brand-copy"><strong>IFCIS</strong><span>INSTITUTO DE FORMACIÓN Y CAPACITACIÓN INTEGRAL DE SEGURIDAD</span></div>
+      </div>
+      <div>
+        <small>NAVEGACIÓN</small>
+        <a href="#cursos">Cursos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div>
+        <small>CONTACTO</small>
+        <a href="tel:+541112345678">+54 11 1234 5678</a>
+        <a href="mailto:info@ifcis.com.ar">info@ifcis.com.ar</a>
+        <span>Buenos Aires, Argentina</span>
+      </div>
+      <div class="footer-cta">
+        <small>¿LISTO PARA EMPEZAR?</small>
+        <button class="btn btn-primary" data-open-registration>INSCRIBIRME <span>↗</span></button>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 IFCIS. Todos los derechos reservados.</span>
+      <a href="#inicio">VOLVER ARRIBA ↑</a>
+    </div>
+  </footer>
+
+  
+  <div class="course-modal-backdrop" id="courseModal" aria-hidden="true">
+    <section class="course-detail-modal" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
+      <button class="course-detail-close" data-close-course-modal aria-label="Cerrar">×</button>
+      <div class="course-detail-image">
+        <img id="courseModalImage" alt="">
+        <span id="courseModalLevel"></span>
+      </div>
+      <div class="course-detail-content">
+        <div class="kicker"><span></span> INFORMACIÓN DEL CURSO</div>
+        <h2 id="courseModalTitle"></h2>
+        <p class="course-detail-description" id="courseModalDescription"></p>
+
+        <div class="course-detail-facts">
+          <article><small>DURACIÓN</small><strong id="courseModalDuration"></strong></article>
+          <article><small>MODALIDAD</small><strong id="courseModalModality"></strong></article>
+          <article><small>CERTIFICACIÓN</small><strong id="courseModalCertification"></strong></article>
+        </div>
+
+        <div class="course-detail-section">
+          <h3>OBJETIVOS</h3>
+          <p id="courseModalObjectives"></p>
+        </div>
+        <div class="course-detail-section">
+          <h3>REQUISITOS</h3>
+          <p id="courseModalRequirements"></p>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="courseModalRegister">
+          CONSULTAR VACANTES <span>↗</span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="registrationModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
+      <button class="modal-close" data-close-modal aria-label="Cerrar">×</button>
+      <div class="kicker"><span></span> INSCRIPCIÓN ONLINE</div>
+      <h2 id="registrationTitle">RESERVÁ TU <em>VACANTE</em></h2>
+      <p>Completá tus datos y nos pondremos en contacto para confirmar disponibilidad.</p>
+      <form id="registrationForm" class="modal-form" novalidate><input class="security-honeypot" name="website" autocomplete="off" tabindex="-1" aria-hidden="true">
+        <label class="field"><span>Nombre y apellido</span><input name="fullName" required /></label>
+        <div class="field-grid">
+          <label class="field"><span>Email</span><input type="email" name="email" required /></label>
+          <label class="field"><span>Teléfono</span><input name="phone" required /></label>
+        </div>
+        <label class="field"><span>Curso</span><select id="courseSelect" name="course" required></select></label>
+        <label class="field"><span>Consulta adicional</span><textarea name="notes" rows="3"></textarea></label>
+        <button class="btn btn-primary btn-full" type="submit">ENVIAR INSCRIPCIÓN <span>↗</span></button>
+        <p class="form-feedback" id="registrationFeedback" role="status"></p>
+      </form>
+    </section>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" data-close-lightbox aria-label="Cerrar">×</button>
+    <img id="lightboxImage" alt="Vista ampliada" />
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.2/dist/umd/supabase.min.js" crossorigin="anonymous"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

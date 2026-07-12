@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060b10">
+  <title>IFCIS | Panel Administrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="loginView" class="login-view">
+    <div class="login-shell">
+      <div class="login-brand">
+        <img src="assets/ifcis-logo.png" alt="Logo IFCIS">
+        <div><strong>IFCIS</strong><span>PANEL ADMINISTRATIVO</span></div>
+      </div>
+      <div class="login-card">
+        <div class="eyebrow">ACCESO RESTRINGIDO</div>
+        <h1>INGRESAR AL PANEL</h1>
+        <p>Administrá cursos, calendario, inscripciones y mensajes desde un solo lugar.</p>
+        <form id="loginForm">
+          <label>Email administrativo<input id="loginUser" type="email" autocomplete="username" maxlength="200" required></label>
+          <label>Contraseña<input id="loginPassword" type="password" autocomplete="current-password" minlength="12" maxlength="128" required></label>
+          <button type="submit">INGRESAR</button>
+          <p id="loginFeedback"></p>
+        </form>
+        <a href="index.html">← Volver al sitio</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashboardView" class="dashboard-view" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/ifcis-logo.png" alt="Logo IFCIS">
+        <div><strong>IFCIS</strong><span>ADMIN</span></div>
+      </div>
+      <nav>
+        <button class="nav-item active" data-section="overview">Resumen</button>
+        <button class="nav-item" data-section="courses">Cursos</button>
+        <button class="nav-item" data-section="calendar">Calendario</button>
+        <button class="nav-item" data-section="gallery">Galería</button>
+        <button class="nav-item" data-section="team">Equipo</button>
+        <button class="nav-item" data-section="registrations">Inscripciones</button>
+        <button class="nav-item" data-section="messages">Mensajes</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <a href="index.html">Ver sitio público</a>
+        <button id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <div class="admin-sidebar-overlay" id="adminSidebarOverlay" aria-hidden="true"></div>
+      <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div>
+          <div class="eyebrow">PANEL DE CONTROL</div>
+          <h1 id="pageTitle">RESUMEN GENERAL</h1>
+        </div>
+        <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+      </header>
+
+      <section id="overviewSection" class="panel-section active">
+        <div class="stats-grid" id="statsGrid"></div>
+        <div class="dashboard-grid">
+          <article class="panel-card">
+            <div class="card-head"><div><span>ACTIVIDAD</span><h2>Últimas inscripciones</h2></div></div>
+            <div id="recentRegistrations" class="list"></div>
+          </article>
+          <article class="panel-card">
+            <div class="card-head"><div><span>CONTACTO</span><h2>Últimos mensajes</h2></div></div>
+            <div id="recentMessages" class="list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="coursesSection" class="panel-section">
+        <div class="section-toolbar">
+          <div><span>GESTIÓN ACADÉMICA</span><h2>Cursos</h2></div>
+          <button class="gold-btn" id="newCourseBtn">+ NUEVO CURSO</button>
+        </div>
+        <div id="courseAdminGrid" class="admin-grid"></div>
+      </section>
+
+      <section id="calendarSection" class="panel-section">
+        <div class="section-toolbar">
+          <div><span>PROGRAMACIÓN</span><h2>Calendario</h2></div>
+          <button class="gold-btn" id="newDateBtn">+ NUEVA FECHA</button>
+        </div>
+        <div id="calendarAdminList" class="table-card"></div>
+      </section>
+
+
+      <section id="gallerySection" class="panel-section">
+        <div class="section-toolbar">
+          <div><span>CONTENIDO VISUAL</span><h2>Galería</h2></div>
+          <button class="gold-btn" id="newGalleryBtn">+ NUEVA IMAGEN</button>
+        </div>
+        <div id="galleryAdminGrid" class="admin-grid gallery-admin-grid"></div>
+      </section>
+
+      
+      <section id="teamSection" class="panel-section">
+        <div class="section-toolbar">
+          <div><span>PERSONAL</span><h2>Equipo</h2></div>
+          <button class="gold-btn" id="newTeamBtn">+ NUEVO INTEGRANTE</button>
+        </div>
+        <div id="teamAdminGrid" class="admin-grid team-admin-grid"></div>
+      </section>
+
+      <section id="registrationsSection" class="panel-section">
+        <div class="section-toolbar">
+          <div><span>ALUMNOS</span><h2>Inscripciones</h2></div>
+          <button class="secondary-btn" data-export="registrations">EXPORTAR CSV</button>
+        </div>
+        <div id="registrationsTable" class="table-card"></div>
+      </section>
+
+      <section id="messagesSection" class="panel-section">
+        <div class="section-toolbar">
+          <div><span>CONSULTAS</span><h2>Mensajes</h2></div>
+          <button class="secondary-btn" data-export="messages">EXPORTAR CSV</button>
+        </div>
+        <div id="messagesTable" class="table-card"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="editorModal" class="modal-backdrop" aria-hidden="true">
+    <section class="modal-card">
+      <button class="modal-close" id="closeEditor">×</button>
+      <div class="eyebrow" id="editorEyebrow">EDITOR</div>
+      <h2 id="editorTitle">Editar</h2>
+      <form id="editorForm"></form>
+    </section>
+  </div>
+
+  <div class="toast" id="adminToast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.2/dist/umd/supabase.min.js" crossorigin="anonymous"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
