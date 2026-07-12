@@ -1396,4 +1396,27 @@ h1{font-size:clamp(58px,6.2vw,98px);line-height:.93;letter-spacing:-.025em}
   opacity:0!important;
   pointer-events:none!important;
 }
-/* Prueba de deploy automático desde GitHub */
+.courses-section .section-header {
+  position: relative;
+}
+
+.courses-section .section-header::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(700px, 90vw);
+  height: 220px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(95, 184, 245, 0.13),
+      transparent 68%
+    );
+
+  filter: blur(30px);
+}
