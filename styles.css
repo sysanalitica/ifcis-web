@@ -1473,3 +1473,83 @@ h1{font-size:clamp(58px,6.2vw,98px);line-height:.93;letter-spacing:-.025em}
 
   filter: blur(30px);
 }
+/* Fondo premium de grilla — Sobre IFCIS */
+.about-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #05090d;
+}
+
+/* Grilla fina */
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(126, 200, 245, 0.13) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(126, 200, 245, 0.13) 1px,
+      transparent 1px
+    );
+
+  background-size: 20px 20px;
+  background-position: center;
+  opacity: 0.72;
+}
+
+/* Desvanecido radial desde el centro */
+.about-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(5, 9, 13, 0) 18%,
+      rgba(5, 9, 13, 0.34) 48%,
+      rgba(5, 9, 13, 0.85) 78%,
+      #05090d 100%
+    );
+}
+
+/* Contenido por encima del efecto */
+.about-section > .container {
+  position: relative;
+  z-index: 2;
+}
+.about-section .about-grid {
+  position: relative;
+}
+
+.about-section .about-grid::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(760px, 90vw);
+  height: 320px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(95, 184, 245, 0.1),
+      transparent 70%
+    );
+
+  filter: blur(34px);
+}
